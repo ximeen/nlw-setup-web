@@ -29,10 +29,19 @@ type Summary = Array<{
 export function SummaryTable() {
   const [summary, setSummary] = useState<Summary>([])
 
+  function fetchApi() {
+    try {
+      api.get("/summary").then((response) => {
+        setSummary(response.data)
+      })
+
+    } catch (error) {
+      alert('Ops, não foi possível carregar o sumário!')
+    }
+  }
+
   useEffect(() => {
-    api.get("/summary").then((response) => {
-      setSummary(response.data)
-    })
+    fetchApi()
   }, [])
 
   return (
