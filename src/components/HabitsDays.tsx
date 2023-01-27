@@ -1,10 +1,9 @@
 import * as Popover from '@radix-ui/react-popover';
-import * as Checkbox from '@radix-ui/react-checkbox';
 import clsx from "clsx"
 
 import { ProgressBar } from './ProgressBar';
-import { Check } from 'phosphor-react';
 import dayjs from 'dayjs';
+import { HabitList } from './HabitList';
 
 interface HabitDaysProps {
   date: Date
@@ -37,44 +36,7 @@ export function HabitsDays({ amount = 0, completed = 0, date }: HabitDaysProps) 
           <span className='font-semibold text-zinc-400'>{dayOfWeek}</span>
           <span className='mt-1 font-extrabold leading-tight text-3xl'>{dayAndMonth}</span>
 
-          <div className="flex flex-col gap-3 mt-6">
-            <Checkbox.Root className='flex items-center gap-3 group'>
-
-              <div className="h-8 w-8 rounded-lg flex items-center justify-center bg-zinc-900 border-2 border-zinc-800 group-data-[state=checked]:bg-green-500 group-data-[state=checked]:border-green-500">
-
-                <Checkbox.Indicator >
-                  <Check size={20} className="text-white" />
-                </Checkbox.Indicator>
-
-              </div>
-
-              <span className='font-semibold text-xl text-white leading-tight group-data-[state=checked]:line-through group-data-[state=checked]:text-zinc-400'>Beber 2l</span>
-            </Checkbox.Root>
-            <Checkbox.Root className='flex items-center gap-3 group'>
-
-              <div className="h-8 w-8 rounded-lg flex items-center justify-center bg-zinc-900 border-2 border-zinc-800 group-data-[state=checked]:bg-green-500 group-data-[state=checked]:border-green-500">
-
-                <Checkbox.Indicator >
-                  <Check size={20} className="text-white" />
-                </Checkbox.Indicator>
-
-              </div>
-
-              <span className='font-semibold text-xl text-white leading-tight group-data-[state=checked]:line-through group-data-[state=checked]:text-zinc-400'>Beber 2l</span>
-            </Checkbox.Root>
-            <Checkbox.Root className='flex items-center gap-3 group'>
-
-              <div className="h-8 w-8 rounded-lg flex items-center justify-center bg-zinc-900 border-2 border-zinc-800 group-data-[state=checked]:bg-green-500 group-data-[state=checked]:border-green-500">
-
-                <Checkbox.Indicator >
-                  <Check size={20} className="text-white" />
-                </Checkbox.Indicator>
-
-              </div>
-
-              <span className='font-semibold text-xl text-white leading-tight group-data-[state=checked]:line-through group-data-[state=checked]:text-zinc-400'>Beber 2l</span>
-            </Checkbox.Root>
-          </div>
+          <HabitList date={date} />
 
           <ProgressBar progressStatus={completedPercentage} />
 
